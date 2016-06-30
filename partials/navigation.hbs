@@ -1,8 +1,11 @@
+<div class="logo">
+  <a class="blog-logo" href="{{@blog.url}}" style="padding: 0;">
+    <video src="/assets/video/logo.mp4" width="250" height="250" alt="{{@blog.title}}" autoplay loop></video>
+  </a>
+</div>
+<div id="navigator-opener"></div>
 <div class="navigation">
   <div class="nav-content">
-    <div>
-      {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
-    </div>
     <div class="nav-items">
         {{#foreach navigation}}
           <div class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation"><a href="{{url absolute="true"}}">{{label}}</a></div>
