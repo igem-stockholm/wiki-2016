@@ -21,6 +21,14 @@
         });
 
     });
+    
+	$document.on("scroll",function(){
+		if($(document).scrollTop() > 100){ 
+			$(".navigation").removeClass("large").addClass("small");
+		} else {
+			$(".navigation").removeClass("small").addClass("large");
+		}
+	});
 
     // Arctic Scroll by Paul Adam Davis
     // https://github.com/PaulAdamDavis/Arctic-Scroll
