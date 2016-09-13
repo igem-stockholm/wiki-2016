@@ -484,14 +484,14 @@ margin on the iframe, cause it breaks stuff. */
             transition: transform 0.5s ease;
 }
 
-body.nav-opened .site-wrapper {
+/*body.nav-opened .site-wrapper {
     overflow-x: hidden;
     -webkit-transform: translate3D(-240px, 0, 0);
         -ms-transform: translate3D(-240px, 0, 0);
             transform: translate3D(-240px, 0, 0);
     -webkit-transition: -webkit-transform 0.3s ease;
             transition: transform 0.3s ease;
-}
+}*/
 
 
 /* ==========================================================================
@@ -518,6 +518,10 @@ body.nav-opened .site-wrapper {
   z-index: 200;
 }
 
+.hamburger {
+  display:none;
+}
+
 #navigator-opener {
   position: fixed; /* stick the nav */
   width: 100%; /* make the nav full width of the screen */
@@ -529,6 +533,11 @@ body.nav-opened .site-wrapper {
 .navigation:hover,
 #navigator-opener:hover + .navigation,
 .logo:hover + div + div {
+  display: flex;
+  display: -webkit-flex;
+}
+
+.nav-opened .navigation {
   display: flex;
   display: -webkit-flex;
 }
@@ -545,6 +554,10 @@ body.nav-opened .site-wrapper {
         justify-content: center;
         border-bottom: 1px solid lightgrey;
     }
+
+.navigation div {
+  display: flex;
+}
 
     .nav-content{
       display: flex;
@@ -589,14 +602,14 @@ body.nav-opened .site-wrapper {
 }
 
 /* Navigation */
-body.nav-opened .nav-cover {
+/*body.nav-opened .nav-cover {
     position: fixed;
     top: 0;
     left: 0;
     right: 240px;
     bottom: 0;
     z-index: 200;
-}
+}*/
 
 .nav {
     position: fixed;
@@ -622,7 +635,7 @@ body.nav-closed .nav {
             transform: translate3D(97px, 0, 0);
 }
 
-body.nav-opened .nav {
+/*body.nav-opened .nav {
     opacity: 1;
     -webkit-transition: -webkit-transform 0.3s ease,
                         opacity 0s ease 0s;
@@ -631,7 +644,7 @@ body.nav-opened .nav {
     -webkit-transform: translate3D(0, 0, 0);
         -ms-transform: translate3D(0, 0, 0);
             transform: translate3D(0, 0, 0);
-}
+}*/
 
 .nav-title {
     position: absolute;
@@ -644,13 +657,19 @@ body.nav-opened .nav {
 }
 
 .nav-close {
+    display: none;
     position: absolute;
-    top: 38px;
-    right: 25px;
-    width: 20px;
-    height: 20px;
+    top: 46px;
+    right: 27px;
+    width: 30px;
+    height: 30px;
     padding: 0;
     font-size: 10px;
+    z-index: 200;
+}
+
+.nav-opened .nav-close {
+  display: block;
 }
 
 .nav-close:focus {
@@ -662,7 +681,7 @@ body.nav-opened .nav {
     content: '';
     position: absolute;
     top: 0;
-    width: 20px;
+    width: 25px;
     height: 1px;
     background: rgb(150,150,150);
     top: 15px;
@@ -684,7 +703,7 @@ body.nav-opened .nav {
 
 .nav-close:hover:before,
 .nav-close:hover:after {
-    background: rgb(255,255,255);
+    background: rgb(0,0,0);
 }
 
 .nav ul {
@@ -834,13 +853,12 @@ body.nav-opened .nav {
 }
 
 .blog-logo img {
-    -webkit-box-sizing: border-box;
+    /*-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    display: block;
-    height: 38px;
-    padding: 1px 0 5px 0;
-    width: auto;
+    display: block;*/
+    height: 230px;
+    width: 230px;
 }
 
 .menu-button {
@@ -896,7 +914,7 @@ body.nav-opened .nav {
 }
 
 /* When the navigation is opened */
-.nav-opened .menu-button {
+/*.nav-opened .menu-button {
     padding: 0 12px;
     background: #111;
     border-color: #111;
@@ -905,12 +923,12 @@ body.nav-opened .nav {
         -ms-transform: translate3D(94px, 0, 0);
             transform: translate3D(94px, 0, 0);
     transition: all 0.3s ease;
-}
+}*/
 
-.nav-opened .menu-button .word {
+/*.nav-opened .menu-button .word {
     opacity: 0;
     transition: all 0.3s ease;
-}
+}*/
 
 /* Special styles when overlaid on an image*/
 .main-nav.overlay {
@@ -1664,11 +1682,18 @@ body:not(.post-template) .post-title {
 }
 
 
+@media only screen and (max-width: 1180px) {
+  .post {
+    float:right;
+    margin: 4rem;
+  }
+}
+
 /* ==========================================================================
    11. Media Queries - Smaller than 900px
    ========================================================================== */
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 980px) {
 
     blockquote {
         margin-left: 0;
@@ -1693,7 +1718,12 @@ body:not(.post-template) .post-title {
     }
 
     .blog-logo img {
-        padding: 4px 0;
+        height: 120px;
+        width: 120px;
+    }
+
+    .navigation {
+      height: 120px;
     }
 
     .page-title {
@@ -1806,7 +1836,7 @@ body:not(.post-template) .post-title {
    12. Media Queries - Smaller than 500px
    ========================================================================== */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 800px) {
 
     .main-header {
         margin-bottom: 15px;
@@ -1829,11 +1859,63 @@ body:not(.post-template) .post-title {
     }
 
     .blog-logo {
-        padding: 5px;
+        /*padding: 5px;*/
     }
 
     .blog-logo img {
-        height: 30px;
+        /*height: 30px;
+        width: 30px;*/
+    }
+
+    .logo {
+      position: absolute;
+    }
+
+    #navigator-opener {
+      display: none;
+    }
+
+    .nav-content {
+      justify-content: center;
+      width: auto;
+    }
+
+    .nav-items {
+      flex-direction: column;
+    }
+
+    .nav-items div {
+      padding: 7px;
+    }
+
+    .hamburger {
+      position: absolute;
+      right: 31px;
+      top: 47px;
+      font-size: 30px;
+      text-decoration: none;
+      z-index: 200;
+      display: block;
+    }
+
+    .nav-opened .hamburger {
+      display: none;
+    }
+
+    .navigation {
+      position: relative;
+      margin-top: 34px;
+      padding-bottom: 20px;
+      height: auto;
+    }
+
+    .site-wrapper {
+      margin-top: 130px;
+    }
+
+    .nav-opened .site-wrapper {
+      margin-top: 0px;
+      top: -70px; /* don't know why this is needed /leo */
     }
 
     .menu-button {
@@ -1848,10 +1930,10 @@ body:not(.post-template) .post-title {
         border-color: transparent;
         background: none;
     }
-    body.nav-opened .menu-button {
+    /*body.nav-opened .menu-button {
         background: none;
         border: transparent;
-    }
+    }*/
 
     .main-nav.overlay a:hover {
         color: #fff;
@@ -1875,10 +1957,10 @@ body:not(.post-template) .post-title {
 
     }
 
-    .nav-close {
+    /*.nav-close {
         position: absolute;
         top: 18px;
-    }
+    }*/
 
     .nav ul {
         padding: 60px 9% 5%;
@@ -1891,6 +1973,7 @@ body:not(.post-template) .post-title {
     }
 
     .post {
+        float: none;
         width: auto;
         margin-top: 2rem;
         margin-bottom: 2rem;
