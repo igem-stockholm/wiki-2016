@@ -252,6 +252,16 @@ a:hover {
     color: #111;
 }
 
+a.ref {
+  vertical-align: super;
+  font-size: smaller;
+  text-decoration: none;
+}
+
+a.ref:hover {
+  text-decoration: underline;
+}
+
 p, ul, ol, dl {
     -webkit-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
     -moz-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
