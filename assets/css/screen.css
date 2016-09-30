@@ -529,7 +529,22 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 .hamburger {
-  display:none;
+  position: fixed;
+  right: 63px;
+  top: 101px;
+  font-size: 30px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.hamburger-hover {
+  position: fixed;
+  right: 38px;
+  top: 82px;
+  width: 80px;
+  height: 80px;
+  z-index: 101;
+  display: block;
 }
 
 #navigator-opener {
@@ -542,6 +557,7 @@ margin on the iframe, cause it breaks stuff. */
 
 .navigation:hover,
 #navigator-opener:hover + .navigation,
+.hamburger-hover:hover + div + div + div,
 .logo:hover + div + div {
   display: flex;
   display: -webkit-flex;
@@ -565,20 +581,33 @@ margin on the iframe, cause it breaks stuff. */
         border-bottom: 1px solid lightgrey;
     }
 
-.navigation div {
-  display: flex;
-}
+    .navigation div {
+      display: flex;
+    }
+
+    .navigation div.nav-sublevel{
+      display: none;
+      position: absolute;
+      top: 45px;
+      left: -14px;
+      padding: 0 30px 55px 30px; /* Area is bigger than text so that menu doesn't close */
+    }
 
     .nav-content{
       display: flex;
       width: 1300px;
-      justify-content: flex-end;
+      justify-content: flex-start;
+      margin-left: 250px;
     }
 
     .nav-items{
       display: flex;
       flex-direction: row;
       align-items: center;
+    }
+
+    .nav-items > div {
+      position: relative;
     }
 
     .site-wrapper {
@@ -588,12 +617,25 @@ margin on the iframe, cause it breaks stuff. */
     .navigation div a {
         color: #b5b5b5; /* styling */
         text-decoration: none;
-        padding: 7px 15px;
+        padding: 7px 25px;
         font-family: Raleway;
+        white-space: nowrap;
+    }
+
+    .navigation div.nav-sublevel a {
+      padding: 3px 10px;
+      white-space: nowrap;
+      font-size: smaller;
+      font-style: italic;
     }
 
     .navigation div a:hover {
         color: black; /* styling */
+    }
+
+    .navigation div a:hover + div,
+    .navigation div.nav-sublevel:hover{
+      display: flex;
     }
 
 .main-header .inner {
@@ -669,13 +711,19 @@ body.nav-closed .nav {
 .nav-close {
     display: none;
     position: absolute;
-    top: 46px;
-    right: 27px;
-    width: 30px;
-    height: 30px;
-    padding: 0;
+    top: 20px;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    padding: 30px;
     font-size: 10px;
     z-index: 200;
+}
+
+.nav-close-cross {
+  position: absolute;
+  top: 30px;
+  left: 33px;
 }
 
 .nav-opened .nav-close {
@@ -686,8 +734,8 @@ body.nav-closed .nav {
     outline: 0;
 }
 
-.nav-close:before,
-.nav-close:after {
+.nav-close-cross:before,
+.nav-close-cross:after {
     content: '';
     position: absolute;
     top: 0;
@@ -699,20 +747,20 @@ body.nav-closed .nav {
             transition: background 0.15s ease;
 }
 
-.nav-close:before {
+.nav-close-cross:before {
     -webkit-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
             transform: rotate(45deg);
 }
 
-.nav-close:after {
+.nav-close-cross:after {
     -webkit-transform: rotate(-45deg);
         -ms-transform: rotate(-45deg);
             transform: rotate(-45deg);
 }
 
-.nav-close:hover:before,
-.nav-close:hover:after {
+.nav-close-cross:hover:before,
+.nav-close-cross:hover:after {
     background: rgb(0,0,0);
 }
 
@@ -1006,7 +1054,7 @@ body.nav-closed .nav {
 .post {
     position: relative;
     width: 80%;
-    max-width: 710px;
+    max-width: 800px;
     margin: 4rem auto;
     padding-bottom: 4rem;
     border-bottom: #EBF2F6 1px solid;
@@ -1703,7 +1751,7 @@ body:not(.post-template) .post-title {
    11. Media Queries - Smaller than 900px
    ========================================================================== */
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 1150px) {
 
     blockquote {
         margin-left: 0;
@@ -1728,12 +1776,16 @@ body:not(.post-template) .post-title {
     }
 
     .blog-logo img {
-        height: 120px;
-        width: 120px;
+        height: 180px;
+        width: 180px;
     }
 
     .navigation {
-      height: 120px;
+      height: 180px;
+    }
+
+    .hamburger {
+      top: 76px;
     }
 
     .page-title {
@@ -1853,6 +1905,11 @@ body:not(.post-template) .post-title {
         height: 40vh;
     }
 
+    .blog-logo img {
+        height: 120px;
+        width: 120px;
+    }
+
     .no-cover.main-header {
         height: 30vh;
     }
@@ -1885,9 +1942,14 @@ body:not(.post-template) .post-title {
       display: none;
     }
 
+    .hamburger-hover {
+      display: none;
+    }
+
     .nav-content {
       justify-content: center;
       width: auto;
+      margin-left: 0;
     }
 
     .nav-items {
@@ -1900,10 +1962,11 @@ body:not(.post-template) .post-title {
 
     .hamburger {
       position: absolute;
-      right: 31px;
-      top: 47px;
+      right: 0;
+      top: 20px;
       font-size: 30px;
       text-decoration: none;
+      padding: 30px;
       z-index: 200;
       display: block;
     }
