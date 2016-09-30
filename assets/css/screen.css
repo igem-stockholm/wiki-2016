@@ -534,7 +534,7 @@ margin on the iframe, cause it breaks stuff. */
   top: 101px;
   font-size: 30px;
   text-decoration: none;
-  z-index: 100;
+  z-index: 90;
 }
 
 .hamburger-hover {
@@ -543,7 +543,7 @@ margin on the iframe, cause it breaks stuff. */
   top: 82px;
   width: 80px;
   height: 80px;
-  z-index: 101;
+  z-index: 91;
   display: block;
 }
 
@@ -588,9 +588,9 @@ margin on the iframe, cause it breaks stuff. */
     .navigation div.nav-sublevel{
       display: none;
       position: absolute;
-      top: 45px;
+      top: 38px;
       left: -14px;
-      padding: 0 30px 55px 30px; /* Area is bigger than text so that menu doesn't close */
+      padding: 7px 30px 55px 30px; /* Area is bigger than text so that menu doesn't close */
     }
 
     .nav-content{
@@ -617,7 +617,7 @@ margin on the iframe, cause it breaks stuff. */
     .navigation div a {
         color: #b5b5b5; /* styling */
         text-decoration: none;
-        padding: 7px 25px;
+        padding: 7px 25px 0 25px;
         font-family: Raleway;
         white-space: nowrap;
     }
@@ -1784,8 +1784,20 @@ body:not(.post-template) .post-title {
       height: 180px;
     }
 
+    .nav-content {
+      margin-left: 150px;
+    }
+
     .hamburger {
       top: 76px;
+    }
+
+    .hamburger-hover {
+      top: 54px;
+    }
+
+    .navigation div a {
+      padding: 7px 15px 0 15px;
     }
 
     .page-title {
@@ -1898,7 +1910,7 @@ body:not(.post-template) .post-title {
    12. Media Queries - Smaller than 500px
    ========================================================================== */
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
 
     .main-header {
         margin-bottom: 15px;
@@ -1948,16 +1960,42 @@ body:not(.post-template) .post-title {
 
     .nav-content {
       justify-content: center;
-      width: auto;
+      width: 82%;
       margin-left: 0;
     }
 
     .nav-items {
       flex-direction: column;
+      margin-top: 85px;
+      align-items: stretch;
+      width: 100%;
     }
 
     .nav-items div {
-      padding: 7px;
+      padding-bottom: 60px;
+      text-align: left;
+      justify-content: space-between;
+    }
+
+    .navigation div.nav-sublevel{
+      display: flex;
+      position: relative;
+      text-align: right;
+      top: 0;
+      left: 0;
+      padding: 0;
+      flex-direction: column;
+      margin-top: -7px;
+    }
+
+    .navigation div a {
+      padding: 0;
+      text-align: left;
+    }
+
+    .navigation div.nav-sublevel a {
+      text-align: right;
+      padding: 7px 0;
     }
 
     .hamburger {
@@ -1967,7 +2005,6 @@ body:not(.post-template) .post-title {
       font-size: 30px;
       text-decoration: none;
       padding: 30px;
-      z-index: 200;
       display: block;
     }
 
