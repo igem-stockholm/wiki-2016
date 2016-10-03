@@ -568,6 +568,11 @@ margin on the iframe, cause it breaks stuff. */
   display: -webkit-flex;
 }
 
+.references p {
+  font-size: smaller;
+  margin-bottom: 10px;
+}
+
 .navigation {
         display: none;
         position: fixed; /* stick the nav */
