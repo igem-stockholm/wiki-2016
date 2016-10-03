@@ -573,6 +573,12 @@ margin on the iframe, cause it breaks stuff. */
   margin-bottom: 10px;
 }
 
+figcaption {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: smaller;
+}
+
 .navigation {
         display: none;
         position: fixed; /* stick the nav */
