@@ -454,6 +454,24 @@ margin on the iframe, cause it breaks stuff. */
    3. Utilities - These things get used a lot
    ========================================================================== */
 
+   .sideimage > div {
+    overflow: hidden;
+    margin: 0px 0px 40px 0px;
+    clear: both;
+   }
+   .sideimage > div > img {
+     padding: 0;
+     left: 0%;
+     transform: translate(0%);
+     width: 200px;
+     float: left;
+     margin-right: 20px;
+   }
+
+   .sideimage > div > div {
+     white-space: pre-line;
+   }
+
 /* Clears shit */
 .clearfix:before,
 .clearfix:after {
