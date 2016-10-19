@@ -1754,6 +1754,7 @@ body:not(.post-template) .post-title {
 .sponsors {
   display: flex;
   flex-direction: column;
+  text-align: center;
   width: 100%;
 }
 
