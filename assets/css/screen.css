@@ -212,14 +212,13 @@ h4, h5, h6 {
     color: #2E2E2E;
     line-height: 1.15em;
     margin: 0 0 0.4em 0;
-    font-family: "Raleway", sans-serif;
+    font-family: "Raleway", sans-serif !important;
     text-rendering: geometricPrecision;
 }
 
 h1 {
-    font-size: 5rem;
+    font-size: 5rem !important;
     letter-spacing: -2px;
-    text-indent: -3px;
 }
 
 h2 {
@@ -246,7 +245,6 @@ h6 {
 a {
     color: #4A4A4A;
     transition: color 0.3s ease;
-    text-decoration: underline;
 }
 
 a:hover {
